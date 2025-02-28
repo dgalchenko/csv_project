@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_02_28_111040) do
+ActiveRecord::Schema[7.0].define(version: 2025_02_28_141906) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_28_111040) do
     t.index ["city"], name: "index_companies_on_city", opclass: :gin_trgm_ops, using: :gin
     t.index ["name"], name: "index_companies_on_name", opclass: :gin_trgm_ops, using: :gin
     t.index ["registry_number"], name: "index_companies_on_registry_number", opclass: :gin_trgm_ops, using: :gin
+    t.index ["registry_number"], name: "index_companies_on_registry_number_unique", unique: true
   end
 
 end

@@ -41,3 +41,17 @@ en:
     search:
       title: Search for a company
       placeholder: Enter company name
+    upload:
+      title: Upload CSV
+      form:
+        label: Choose file
+        submit: Upload
+  flash:
+    companies:
+      upload_success: Uploaded successfully
+      upload_failure: "Import failed: %{error}"
+  errors:
+    file:
+      file_missing: No file uploaded.
+      wrong_format: Only CSV format is supported.
+      no_companies_found: No companies found in the file.

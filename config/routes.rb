@@ -5,7 +5,15 @@ Rails.application.routes.draw do
     collection do
       get :search
       get :search_results
-      get :upload
+    end
+  end
+
+  scope :admin do
+    resources :companies do
+      collection do
+        get :upload
+        post :import
+      end
     end
   end
 end

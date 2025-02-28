@@ -1,2 +1,12 @@
-<h1>Companies#upload</h1>
-<p>Find me in app/views/companies/upload.html.erb</p>
+<div class='container mt-5'>
+  <h1 class='display-4'><%= t("companies.upload.title") %></h1>
+
+  <%= form_with url: import_companies_path, multipart: true do |form| %>
+    <div class='mb-3'>
+      <label for='formFile' class='form-label'><%= t("companies.upload.form.label") %></label>
+      <%= form.file_field :file, class: 'form-control', id: 'formFile' %>
+    </div>
+
+    <%= form.submit t("companies.upload.form.submit"), class: 'btn btn-success' %>
+  <% end %>
+</div>

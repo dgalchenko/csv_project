@@ -91,6 +91,11 @@ GEM
       reline (>= 0.2.7)
     digest (3.1.0)
     erubi (1.10.0)
+    factory_bot (6.5.1)
+      activesupport (>= 6.1.0)
+    factory_bot_rails (6.4.4)
+      factory_bot (~> 6.5)
+      railties (>= 5.0.0)
     faker (3.1.0)
       i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
@@ -226,6 +231,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  factory_bot_rails
   faker
   importmap-rails
   pg (~> 1.1)
