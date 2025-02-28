@@ -23,7 +23,23 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  # TODO: Add tests for Import part
-  # TODO: Add tests for CompaniesCsvImporter service
-  # TODO: Add tests for Company model
+  test "should return success if import went successfully" do
+    file = 'file.csv'
+    CompaniesCsvImporter.any_instance.expects(:call).returns({ success: true })
+    post import_companies_path, params: { file: file }
+
+    assert_redirected_to upload_companies_path
+    assert_equal I18n.t('flash.companies.upload_success'), flash[:notice]
+  end
+
+  test "should return alert if import failed" do
+    file = ''
+    CompaniesCsvImporter.any_instance.expects(:call).returns({ success: false, error: I18n.t("errors.file.file_missing") })
+    post import_companies_path, params: { file: file }
+
+    assert_redirected_to upload_companies_path
+    assert_equal I18n.t('flash.companies.upload_failure', error: I18n.t("errors.file.file_missing")), flash[:alert]
+  end
+
+  # TODO: cover all scenarios
 end

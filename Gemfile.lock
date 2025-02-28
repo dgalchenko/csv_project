@@ -119,6 +119,8 @@ GEM
     method_source (1.0.0)
     mini_mime (1.1.2)
     minitest (5.15.0)
+    mocha (2.7.1)
+      ruby2_keywords (>= 0.0.5)
     msgpack (1.4.5)
     net-imap (0.2.3)
       digest
@@ -191,6 +193,7 @@ GEM
     reline (0.3.1)
       io-console (~> 0.5)
     rexml (3.2.5)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
@@ -234,6 +237,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   importmap-rails
+  mocha
   pg (~> 1.1)
   propshaft
   pry-byebug
