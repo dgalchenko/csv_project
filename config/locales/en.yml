@@ -30,4 +30,14 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models: Company
+    attributes:
+      company:
+        registry_number: Registry number
+        name: Name
+        city: City
+  companies:
+    search:
+      title: Search for a company
+      placeholder: Enter company name

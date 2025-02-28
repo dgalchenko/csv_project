@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :companies, only: [] do
     collection do
       get :search
+      get :search_results
       get :upload
     end
   end
