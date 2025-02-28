@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root 'companies#search'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :companies, only: [] do
+    collection do
+      get :search
+      get :upload
+    end
+  end
 end

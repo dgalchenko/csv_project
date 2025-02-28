@@ -10,5 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2025_02_28_111040) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
+  enable_extension "plpgsql"
+
+  create_table "companies", force: :cascade do |t|
+    t.string "registry_number", null: false
+    t.string "name", null: false
+    t.string "city", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city"], name: "index_companies_on_city", opclass: :gin_trgm_ops, using: :gin
+    t.index ["name"], name: "index_companies_on_name", opclass: :gin_trgm_ops, using: :gin
+    t.index ["registry_number"], name: "index_companies_on_registry_number", opclass: :gin_trgm_ops, using: :gin
+  end
+
 end
